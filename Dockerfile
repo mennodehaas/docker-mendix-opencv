@@ -9,8 +9,7 @@ LABEL maintainer="digitalecosystems@mendix.com"
 
 RUN mkdir -p /build/.local/usr/lib/jvm/jdk-8-oracle-x64/
 COPY build_opencv.sh /build
-COPY jdk-8-linux-x64.tar.gz /build
-RUN wget -P /build https://cdn.mendix.com/mx-buildpack/jdk-8-linux-x64.tar.gz
+RUN wget -q -P /build https://cdn.mendix.com/mx-buildpack/jdk-8-linux-x64.tar.gz
 RUN tar -xzf /build/jdk-8-linux-x64.tar.gz --strip-components=1 -C /build/.local/usr/lib/jvm/jdk-8-oracle-x64/
 WORKDIR /build
 RUN chmod u+x build_opencv.sh
